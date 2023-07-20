@@ -1,0 +1,13 @@
+.tagMovie {
+    background-color: #006ee6;
+}
+.tagHot {
+    background-color: #ff4b4b;
+}
+.movieItem {
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.movieItem:hover {
+    transform: scale(1.02);
+}

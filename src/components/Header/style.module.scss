@@ -1,0 +1,21 @@
+.headerDropdown {
+    width: 100vw;
+    height: 50vh;
+    left: 0;
+}
+
+.linkItem {
+    transition: all 0.2s ease-in-out;
+}
+
+.linkItem:hover {
+    color: black !important;
+}
+
+.linkItemMobile {
+    transition: all 0.2s ease-in-out;
+}
+
+.linkItemMobile:hover {
+    opacity: 0.7;
+}

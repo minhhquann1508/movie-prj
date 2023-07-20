@@ -1,0 +1,8 @@
+.linkItem {
+    transition: all 0.2s ease-in-out;
+}
+
+.linkItem:hover {
+    color: black !important;
+    cursor: pointer;
+}
