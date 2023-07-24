@@ -9,12 +9,16 @@ const Films = lazy(() => import('./pages/Films'));
 const Cinemas = lazy(() => import('./pages/Cinemas'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Detail = lazy(() => import('./pages/Detail'));
+const Checkout = lazy(() => import('./pages/Checkout'));
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='' element={<HomeTemplate />}>
           <Route path='' element={<Suspense fallback={<HomeLoading />}><Home /></Suspense>} />
+          <Route path='/detail/:id' element={<Suspense fallback={<HomeLoading />}><Detail /></Suspense>} />
+          <Route path='/checkout/:checkoutId' element={<Suspense fallback={<HomeLoading />}><Checkout /></Suspense>} />
           <Route path='/movies/:type' element={<Suspense fallback={<HomeLoading />}><Films /></Suspense>} />
           <Route path='/cinemas/:cinema' element={<Suspense fallback={<HomeLoading />}><Cinemas /></Suspense>} />
           <Route path='/about' element={<Suspense fallback={<HomeLoading />}><About /></Suspense>} />

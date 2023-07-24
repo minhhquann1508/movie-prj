@@ -1,8 +1,9 @@
-import { GET_BANNER, GET_MOVIE_LIST } from "../types/movieType"
+import { GET_BANNER, GET_DETAIL_MOVIE, GET_MOVIE_LIST } from "../types/movieType"
 
 const initialState = {
     listBanner: null,
-    movieList: null
+    movieList: null,
+    movieDetail: null
 }
 
 export const manageMovieReducer = (state = initialState, action) => {
@@ -13,6 +14,10 @@ export const manageMovieReducer = (state = initialState, action) => {
         }
         case GET_MOVIE_LIST: {
             state.movieList = action.payload;
+            return { ...state };
+        }
+        case GET_DETAIL_MOVIE: {
+            state.movieDetail = action.payload;
             return { ...state };
         }
         default: {

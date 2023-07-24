@@ -11,6 +11,9 @@ class ManageMovieService extends BaseService {
     getMovieList() {
         return this.get(`api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUP_ID}`)
     }
+    getDetailMovie(id) {
+        return this.get(`api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${id}`)
+    }
 }
 
 export const manageMovieService = new ManageMovieService()

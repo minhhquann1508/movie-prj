@@ -1,6 +1,7 @@
 import { manageMovieService } from "../../services/ManageMovieService"
-import { GET_BANNER, GET_MOVIE_LIST } from "../types/movieType";
-
+import { GET_BANNER, GET_DETAIL_MOVIE, GET_MOVIE_LIST } from "../types/movieType";
+import { hideLoadingHometimeAction, hideLoadingThemeAction, showLoadingHomeAction, showLoadingThemeAction } from "./loadingAction";
+//xử lý hành động lấy các banner
 export const getBannerAction = () => {
     return async (dispatch) => {
         try {
@@ -17,6 +18,7 @@ export const getBannerAction = () => {
         }
     }
 }
+//xử lý hành động lấy danh sách phim
 export const getMovieListAction = () => {
     return async (dispatch) => {
         try {
@@ -33,3 +35,25 @@ export const getMovieListAction = () => {
         }
     }
 }
+
+//Lấy chi tiết phim 
+export const getDetailAction = (id) => {
+    return async (dispatch) => {
+        await dispatch(showLoadingHomeAction())
+        try {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+            let result = await manageMovieService.getDetailMovie(id);
+            if (result.status === 200) {
+                dispatch({
+                    type: GET_DETAIL_MOVIE,
+                    payload: result.data.content
+                })
+            }
+            await dispatch(hideLoadingHometimeAction())
+        }
+        catch (error) {
+            console.log(error);
+            await dispatch(hideLoadingHometimeAction())
+        }
+    }
+} 

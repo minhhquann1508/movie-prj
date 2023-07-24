@@ -1,2 +1,3 @@
 export const GET_BANNER = 'GET_BANNER';
 export const GET_MOVIE_LIST = 'GET_MOVIE_LIST';
+export const GET_DETAIL_MOVIE = 'GET_DETAIL_MOVIE';

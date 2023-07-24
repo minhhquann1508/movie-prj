@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { CheckCircleFilled } from '@ant-design/icons';
-import style from '../../style.module.scss'
+import style from '../../global.scss'
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
