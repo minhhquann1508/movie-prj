@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { ArrowDownOutlined } from '@ant-design/icons';
 import { useSpring, animated } from '@react-spring/web'
 import style from './style.module.scss'
+import { useSelector } from 'react-redux';
 const filmItems = [
     {
         label: 'Phim đang chiếu',
@@ -73,6 +74,7 @@ const DropDownMoblie = (props) => {
 
 export default function Header() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { userLogin, accessToken } = useSelector(state => state.userReducer);
     const [animationProps, api] = useSpring(() => ({
         from: { opacity: 1, top: isMobileMenuOpen ? '0%' : '100%' },
         to: { opacity: 0, top: isMobileMenuOpen ? '100%' : '0%' },
@@ -107,6 +109,22 @@ export default function Header() {
                     <li className="flex">
                         <NavLink rel="noopener noreferrer" to='/contact' className={`${style.linkItem} font-bold text-gray-600 flex -mb-1 dark:border-transparent`}>Liên hệ</NavLink>
                     </li>
+                    {
+                        userLogin ?
+                            <li>
+                                <button>hi</button>
+                            </li>
+                            :
+                            <>
+                                <li className="flex">
+                                    <NavLink rel="noopener noreferrer" to='/register' className={`${style.linkItem} font-bold text-gray-600 flex -mb-1 dark:border-transparent`}>Đăng ký</NavLink>
+                                </li>
+                                <li className="flex">
+                                    <NavLink rel="noopener noreferrer" to='/login' className={`${style.linkItem} font-bold text-gray-600 flex -mb-1 dark:border-transparent`}>Đăng nhập</NavLink>
+                                </li>
+                            </>
+                    }
+
                 </ul>
                 <button className="flex justify-end p-4 md:hidden" onClick={() => {
                     setMobileMenuOpen(!isMobileMenuOpen)

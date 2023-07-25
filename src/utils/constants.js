@@ -1,6 +1,8 @@
 export const DOMAIN = 'https://movienew.cybersoft.edu.vn/';
 export const GROUP_ID = 'GP09';
 export const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCA1MCIsIkhldEhhblN0cmluZyI6IjE0LzAxLzIwMjQiLCJIZXRIYW5UaW1lIjoiMTcwNTE5MDQwMDAwMCIsIm5iZiI6MTY3NzQzMDgwMCwiZXhwIjoxNzA1MzM4MDAwfQ.k7Kzay9-bYUjN7pTcMrYpgTq5Xe5U6jdvM1OUQ5L_2A';
+export const USER_LOGIN = 'USER_LOGIN';
+export const ACCESS_TOKEN = 'ACCESS_TOKEN';
 export const LIST_CINEMA = [
     {
         key: 'BHDStar',
@@ -59,4 +61,53 @@ export const descCinemaBrandList = [
         uuDai: '',
         danhGia: '1208'
     }
+]
+
+export const registerItems = [
+    {
+        label: 'Tên tài khoản',
+        name: 'taiKhoan',
+        placeholder: 'abc123',
+        type: 'text'
+    },
+    {
+        label: 'Họ tên',
+        name: 'hoTen',
+        placeholder: 'Nguyễn Văn A',
+        type: 'text'
+    },
+    {
+        label: 'Mật khẩu',
+        name: 'matKhau',
+        placeholder: '****',
+        type: 'password'
+    },
+    {
+        label: 'Số điện thoại',
+        name: 'soDt',
+        placeholder: '+84',
+        type: 'text'
+    },
+    {
+        label: 'Email',
+        name: 'email',
+        placeholder: 'abc123@gmail.com',
+        type: 'email'
+    }
+
+]
+
+export const loginItems = [
+    {
+        label: 'Tên tài khoản',
+        name: 'taiKhoan',
+        placeholder: 'abc123',
+        type: 'text'
+    },
+    {
+        label: 'Mật khẩu',
+        name: 'matKhau',
+        placeholder: '****',
+        type: 'password'
+    },
 ]

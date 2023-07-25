@@ -1,5 +1,5 @@
 import { manageCinemaService } from "../../services/ManageCinemaService";
-import { GET_LIST_CINEMA, GET_LIST_CINEMA_BRAND, GET_LIST_SEAT, GET_LIST_SHOWTIME_BY_CINEMA } from "../types/cinemaType";
+import { GET_LIST_CINEMA, GET_LIST_CINEMA_BRAND, GET_LIST_SEAT, GET_LIST_SHOWTIME_BY_CINEMA, PICK_SEAT } from "../types/cinemaType";
 import { hideLoadingHometimeAction, hideLoadingShowtimeAction, hideLoadingThemeAction, showLoadingHomeAction, showLoadingShowtimeAction, showLoadingThemeAction } from "./loadingAction";
 export const getListCinemaByIdAction = (maHeThongRap, img) => {
     return async (dispatch) => {
@@ -66,6 +66,7 @@ export const getListSeatAction = (maLichChieu) => {
     return async (dispatch) => {
         await dispatch(showLoadingHomeAction())
         try {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
             let result = await manageCinemaService.getListSeat(maLichChieu);
             if (result.status === 200) {
                 await dispatch({
@@ -82,3 +83,11 @@ export const getListSeatAction = (maLichChieu) => {
     }
 }
 
+export const pickSeatAction = (seat) => {
+    return (dispatch) => {
+        dispatch({
+            type: PICK_SEAT,
+            payload: seat
+        })
+    }
+}

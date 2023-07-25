@@ -1,4 +1,4 @@
-import { GET_LIST_CINEMA, GET_LIST_CINEMA_BRAND, GET_LIST_SEAT, GET_LIST_SHOWTIME_BY_CINEMA } from "../types/cinemaType"
+import { GET_LIST_CINEMA, GET_LIST_CINEMA_BRAND, GET_LIST_SEAT, GET_LIST_SHOWTIME_BY_CINEMA, PICK_SEAT } from "../types/cinemaType"
 
 const initialState = {
     listCinema: null,
@@ -6,7 +6,8 @@ const initialState = {
     maHeThongRap: null,
     listShowtime: null,
     listCinemaBrand: null,
-    listSeat: null
+    listSeat: null,
+    listSeatBooking: []
 }
 
 export const manageCinemaReducer = (state = initialState, action) => {
@@ -30,6 +31,18 @@ export const manageCinemaReducer = (state = initialState, action) => {
         }
         case GET_LIST_SEAT: {
             state.listSeat = action.payload;
+            return { ...state };
+        }
+        case PICK_SEAT: {
+            let newListSeatBooking = [...state.listSeatBooking];
+            let index = newListSeatBooking.findIndex((seat) => seat.maGhe === action.payload.maGhe);
+            if (index !== -1) {
+                newListSeatBooking.splice(index, 1);
+            }
+            else {
+                newListSeatBooking.push(action.payload);
+            }
+            state.listSeatBooking = newListSeatBooking;
             return { ...state };
         }
         default: {
