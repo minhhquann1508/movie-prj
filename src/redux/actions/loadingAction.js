@@ -6,7 +6,6 @@ export const showLoadingThemeAction = () => {
     }
 }
 //Gọi hide load phần sidebar
-
 export const hideLoadingThemeAction = () => {
     return {
         type: HIDE_LOADING_THEME

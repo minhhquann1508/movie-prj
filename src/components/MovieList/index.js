@@ -61,17 +61,17 @@ export default function MovieList(props) {
                             <h1 className={`${props.dangChieu ? 'text-white' : ''} font-bold text-sm uppercase ${style.title}`}
                                 onClick={() => navigate(`/detail/${movie.maPhim}`)}
                             >
-                                {movie.tenPhim.length <= 20 ? movie.tenPhim : movie.tenPhim.slice(0, 20) + '...'}
+                                {movie.tenPhim.length <= 15 ? movie.tenPhim : movie.tenPhim.slice(0, 15) + '...'}
                             </h1>
                             <p className='text-gray-400 text-sm'>
-                                {movie.moTa.length <= 25 ? movie.moTa : movie.moTa.slice(0, 25) + '...'}
+                                {movie.moTa.length <= 20 ? movie.moTa : movie.moTa.slice(0, 20) + '...'}
                             </p>
                             {props.dangChieu ?
                                 <div className='flex mt-2'>
                                     <button className={`${style.button} bg-pink-700 text-gray-200 px-2 py-1 rounded-md mr-1`}
                                         onClick={() => navigate(`/detail/${movie.maPhim}`)}
                                     >Đặt vé</button>
-                                    <p className={`${props.dangChieu ? 'text-white' : ''} uppercase flex items-center`}><StarFilled style={{ color: '#fbbf24' }} /> <span className='ml-1'>{movie.danhGia.toFixed(1)}</span></p>
+                                    <p className={`${props.dangChieu ? 'text-white' : ''} flex items-center`}><StarFilled style={{ color: '#fbbf24' }} /> <span className='ml-1'>{movie.danhGia > 0 ? movie.danhGia.toFixed(1) : <span className='text-xs '>Chưa có đánh giá</span>}</span></p>
                                 </div>
                                 :
                                 <div className='flex mt-2'>
@@ -128,13 +128,6 @@ export default function MovieList(props) {
                     >
                         {renderSelection()}
                     </Swiper>
-                    {props.dangChieu ? '' :
-                        <div className='text-center'>
-                            <button className={`${style.button} bg-pink-600 text-gray-100 font-bold p-2 rounded-lg`}
-                                onClick={() => navigate(`cinemas/all`)}
-                            >Tìm phim chiếu rạp</button>
-                        </div>
-                    }
                 </Fragment>
             </div >
         </section >

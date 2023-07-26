@@ -7,26 +7,44 @@ export const LIST_CINEMA = [
     {
         key: 'BHDStar',
         img: 'https://movienew.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png',
+        background: 'https://homepage.momocdn.net/cinema/momo-upload-api-210812191036-637643922368260041.jpg',
+        moTa: 'Hệ thống rạp chiếu phim hiện đại',
+        danhGia: '4042'
     },
     {
         key: 'CGV',
         img: 'https://movienew.cybersoft.edu.vn/hinhanh/cgv.png',
+        background: 'https://homepage.momocdn.net/cinema/momo-upload-api-210812191129-637643922898236024.jpg',
+        moTa: 'Hệ thống rạp chiếu phim lớn nhất Việt Nam',
+        danhGia: '1630'
     },
     {
         key: 'CineStar',
         img: 'https://movienew.cybersoft.edu.vn/hinhanh/cinestar.png',
+        background: 'https://homepage.momocdn.net/cinema/momo-upload-api-210812191056-637643922560498568.jpg',
+        danhGia: '1508',
+        moTa: 'Hệ thống rạp chiếu phim giá rẻ, hiện đại bậc nhất',
     },
     {
         key: 'Galaxy',
         img: 'https://movienew.cybersoft.edu.vn/hinhanh/galaxy-cinema.png',
+        background: 'https://homepage.momocdn.net/cinema/momo-upload-api-210812191028-637643922289129544.jpg',
+        danhGia: '3320',
+        moTa: 'Mang Hollywood đến gần bạn',
     },
     {
         key: 'LotteCinima',
         img: 'https://movienew.cybersoft.edu.vn/hinhanh/lotte-cinema.png',
+        background: 'https://homepage.momocdn.net/cinema/momo-upload-api-210812191018-637643922185106035.jpg',
+        moTa: 'Hệ thống rạp chiếu phim từ Hàn Quốc',
+        danhGia: '1542'
     },
     {
         key: 'MegaGS',
         img: 'https://movienew.cybersoft.edu.vn/hinhanh/megags.png',
+        background: 'https://homepage.momocdn.net/cinema/momo-upload-api-210812191046-637643922467566404.jpg',
+        danhGia: '1208',
+        moTa: 'Rạp chiếu phim tiêu chuẩn quốc tế tại Việt Nam',
     },
 ]
 
@@ -37,29 +55,29 @@ export const descCinemaBrandList = [
         danhGia: '4042'
     },
     {
-        moTa: 'Hệ thống rạp chiếu phim lớn nhất Việt Nam',
         uuDai: 'Ưu đãi 59K/vé 2D cả tuần cho khách hàng mới Ví Trả Sau, tối đa 1 vé/khách hàng',
+        moTa: 'Hệ thống rạp chiếu phim lớn nhất Việt Nam',
         danhGia: '1630'
     },
     {
+        uuDai: '',
+        danhGia: '1508',
         moTa: 'Hệ thống rạp chiếu phim giá rẻ, hiện đại bậc nhất',
-        uuDai: '',
-        danhGia: '1508'
     },
     {
+        uuDai: '',
+        danhGia: '3320',
         moTa: 'Mang Hollywood đến gần bạn',
-        uuDai: '',
-        danhGia: '3320'
     },
     {
-        moTa: 'Hệ thống rạp chiếu phim từ Hàn Quốc',
         uuDai: 'Khuyến mãi 89K/ vé 2D cả tuần, không giới hạn',
+        moTa: 'Hệ thống rạp chiếu phim từ Hàn Quốc',
         danhGia: '1542'
     },
     {
-        moTa: 'Rạp chiếu phim tiêu chuẩn quốc tế tại Việt Nam',
         uuDai: '',
-        danhGia: '1208'
+        danhGia: '1208',
+        moTa: 'Rạp chiếu phim tiêu chuẩn quốc tế tại Việt Nam',
     }
 ]
 

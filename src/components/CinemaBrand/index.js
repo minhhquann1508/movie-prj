@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { StarFilled, TagFilled } from '@ant-design/icons'
+import { StarFilled, TagFilled } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux'
 import { getCinemaBrandAction } from '../../redux/actions/manageCinema';
 import { descCinemaBrandList } from '../../utils/constants';
