@@ -6,7 +6,6 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginAction } from '../../redux/actions/manageUserAction';
 import { useNavigate } from 'react-router-dom';
-import MyForm from '../../components/test';
 const SignupSchema = Yup.object().shape({
     taiKhoan: Yup.string()
         .min(2, 'Tài khoản quá ngắn')

@@ -13,6 +13,7 @@ const Detail = lazy(() => import('./pages/Detail'));
 const Checkout = lazy(() => import('./pages/Checkout'));
 const Login = lazy(() => import('./pages/Login'))
 const Register = lazy(() => import('./pages/Register'))
+const UserInformation = lazy(() => import('./pages/UserInfomation'))
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ function App() {
           <Route path='/contact' element={<Suspense fallback={<HomeLoading />}><Contact /></Suspense>} />
           <Route path='/login' element={<Suspense fallback={<HomeLoading />}><Login /></Suspense>} />
           <Route path='/register' element={<Suspense fallback={<HomeLoading />}><Register /></Suspense>} />
+          <Route path='/user/:userName' element={<Suspense fallback={<HomeLoading />}><UserInformation /></Suspense>} />
         </Route>
         <Route path='/admin' element={<AdminTemplate />}>
 

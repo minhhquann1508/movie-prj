@@ -18,6 +18,7 @@ export default function Checkout() {
             navigate('/login')
         }
     }, []);
+    console.log(userLogin);
     //Hàm xử lý render ra trạng thái và danh sách các hàng ghế
     const renderSeat = () => {
         let cssSeat = '';
@@ -112,8 +113,52 @@ export default function Checkout() {
                             {renderSeat()}
                         </div>
                     </div>
-                    <div className='w-1/3 pl-3'>
-
+                    <div className='w-1/3 ml-5 px-3 border-2 rounded-lg border-pink-600 h-fit py-10'>
+                        {/* Thông tin ghế đặt  */}
+                        <h1 className='font-bold text-xl text-center mb-5 text-pink-600'>Thông tin đặt ghế</h1>
+                        {/* Phần thông tin phim đang đặt */}
+                        <div className='flex items-center pb-3'>
+                            <div className='w-32 text-center mb-3'>
+                                <img src={listSeat?.thongTinPhim.hinhAnh} alt={listSeat?.thongTinPhim.tenPhim} />
+                            </div>
+                            <div className='ml-3 w-full'>
+                                <h1 className='font-semibold text-lg'>{listSeat?.thongTinPhim.tenPhim}</h1>
+                                <p className='text-sm text-gray-500'><span className='font-semibold text-black'>Cụm rạp</span> {listSeat?.thongTinPhim.tenCumRap}</p>
+                                <p className='text-sm flex'><span className='font-semibold'>Hàng ghế:</span>
+                                    {listSeatBooking.map((seat) => seat.tenGhe).sort((a, b) => {
+                                        return a - b;
+                                    }).map((seat, index) => {
+                                        return (
+                                            <span className='mr-1' key={index}>
+                                                {seat}
+                                            </span>
+                                        );
+                                    })}
+                                </p>
+                                <p className='text-sm'><span className='font-semibold'>Rạp:</span>{listSeat?.thongTinPhim.tenRap}</p>
+                                <p className='text-sm text-gray-500'><span className='text-black font-semibold'>Ngày chiếu:</span> {listSeat?.thongTinPhim.ngayChieu}</p>
+                                <p className='text-sm text-gray-500'><span className='text-black font-semibold'>Giờ chiếu:</span> {listSeat?.thongTinPhim.gioChieu}</p>
+                            </div>
+                        </div>
+                        <hr />
+                        {/* Phần thông tin người dùng */}
+                        <div className='mt-5'>
+                            <h1 className='font-bold text-xl text-center mb-5 text-pink-600'>Thông tin người đặt</h1>
+                            <p className='font-semibold text-sm'>Họ tên: <span className='font-normal text-gray-600'>{userLogin?.hoTen}</span></p>
+                            <p className='font-semibold text-sm'>Số điện thoại: <span className='font-normal text-gray-600'>{userLogin?.soDT}</span></p>
+                            <p className='font-semibold text-sm'>Email: <span className='font-normal text-gray-600'>{userLogin?.email}</span></p>
+                        </div>
+                        {/* Phần tổng tiền và đặt vé */}
+                        <div className='flex justify-between w-full px-1 mt-5'>
+                            <p className='font-bold'>Tổng tiền:
+                                <span className='font-semibold ml-2'>
+                                    {listSeatBooking?.reduce((total, seat) => {
+                                        return total + seat.giaVe;
+                                    }, 0).toLocaleString()}đ
+                                </span>
+                            </p>
+                            <button className='bg-pink-600 px-2 py-1 rounded-md text-white'>Thanh toán</button>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -11,7 +11,7 @@ export default function BreadCrumb(props) {
                     return (
                         <li key={index} className="flex items-center space-x-1">
                             <span className="dark:text-gray-400">/</span>
-                            <a rel="noopener noreferrer" href="#" className="flex items-center px-1 capitalize hover:underline">{item}</a>
+                            <a rel="noopener noreferrer" href="#" className="flex items-center px-1 hover:underline">{item}</a>
                         </li>
                     )
                 })}

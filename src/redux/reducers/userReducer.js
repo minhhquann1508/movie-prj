@@ -1,5 +1,5 @@
-import { USER_LOGIN } from "../../utils/constants";
-import { LOGIN, REGISTER } from "../types/userType"
+import { ACCESS_TOKEN, USER_LOGIN } from "../../utils/constants";
+import { GET_PROFILE, LOGIN, REGISTER, UPDATE_PROFILE } from "../types/userType"
 
 let user = null;
 let accessTokenUser = null;
@@ -9,7 +9,8 @@ if (localStorage.getItem(USER_LOGIN)) {
 }
 const initialState = {
     userLogin: user,
-    accessToken: accessTokenUser
+    accessToken: accessTokenUser,
+    userProfile: null,
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -19,6 +20,15 @@ export const userReducer = (state = initialState, action) => {
         }
         case LOGIN: {
             localStorage.setItem(USER_LOGIN, JSON.stringify(action.payload))
+            localStorage.setItem(ACCESS_TOKEN, action.payload.accessToken)
+            return { ...state };
+        }
+        case GET_PROFILE: {
+            state.userProfile = action.payload;
+            return { ...state };
+        }
+        case UPDATE_PROFILE: {
+            state.userProfile = action.payload;
             return { ...state };
         }
         default: {

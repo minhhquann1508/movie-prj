@@ -3,8 +3,10 @@ import style from './style.module.scss'
 import moment from 'moment/moment';
 import LoadingTheme from '../LoadingTheme'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 export default function Showtime(props) {
     const { data, logoImage } = props;
+    const navigate = useNavigate();
     const renderShowtime = () => {
         if (data === null) {
             return (
@@ -27,13 +29,21 @@ export default function Showtime(props) {
                                 </div>
                                 <div className='mt-5 md:ml-5 w-full md:w-5/6'>
                                     <span className='text-xs p-0.5 mb-1 bg-orange-400 text-gray-100 rounded-sm font-semibold'>16+</span>
-                                    <h6 className={`${style.title} font-bold text-base mb-1 text-gray-700 cursor-pointer`}>{movie.tenPhim}</h6>
+                                    <h6 className={`${style.title} font-bold text-base mb-1 text-gray-700 cursor-pointer`}
+                                        onClick={() => {
+                                            navigate(`/detail/${movie.maPhim}`)
+                                        }}
+                                    >{movie.tenPhim}</h6>
                                     <p className='mb-3 text-xs text-gray-400'>Phim đang chiếu</p>
                                     <h6 className='font-bold text-base mb-1 text-gray-700'>2D Phụ đề</h6>
                                     <div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
                                         {movie.lstLichChieuTheoPhim.slice(0, 8).map((suat, index) => {
                                             return (
-                                                <button key={index} className='border border-blue-300 px-5 py-1 rounded-lg text-blue-600 font-semibold'>{moment(suat.ngayChieuGioChieu).format('hh:mm A')}</button>
+                                                <button key={index}
+                                                    onClick={() => {
+                                                        navigate(`/checkout/${suat.maLichChieu}`)
+                                                    }}
+                                                    className='border border-blue-300 px-5 py-1 rounded-lg text-blue-600 font-semibold'>{moment(suat.ngayChieuGioChieu).format('hh:mm A')}</button>
                                             )
                                         })}
                                     </div>

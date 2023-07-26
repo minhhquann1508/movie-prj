@@ -69,11 +69,8 @@ export default function MovieList(props) {
                             {props.dangChieu ?
                                 <div className='flex mt-2'>
                                     <button className={`${style.button} bg-pink-700 text-gray-200 px-2 py-1 rounded-md mr-1`}
-                                        onClick={() => navigate(`/checkout/${movie.maPhim}`)}
-                                    >Đặt vé</button>
-                                    <button className={`${style.detailBtn} bg-gray-500 text-gray-200 px-2 py-1 rounded-md mr-1`}
                                         onClick={() => navigate(`/detail/${movie.maPhim}`)}
-                                    >Chi tiết</button>
+                                    >Đặt vé</button>
                                     <p className={`${props.dangChieu ? 'text-white' : ''} uppercase flex items-center`}><StarFilled style={{ color: '#fbbf24' }} /> <span className='ml-1'>{movie.danhGia.toFixed(1)}</span></p>
                                 </div>
                                 :

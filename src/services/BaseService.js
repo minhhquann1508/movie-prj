@@ -1,11 +1,12 @@
 import axios from "axios"
-import { DOMAIN, TOKEN } from "../utils/constants"
+import { ACCESS_TOKEN, DOMAIN, TOKEN } from "../utils/constants"
 export class BaseService {
     get(url) {
         return axios({
             method: 'GET',
             url: `${DOMAIN}/${url}`,
             headers: {
+                Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 TokenCybersoft: TOKEN
             }
         })
@@ -16,6 +17,7 @@ export class BaseService {
             url: `${DOMAIN}/${url}`,
             data: model,
             headers: {
+                Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 TokenCybersoft: TOKEN
             }
         })
@@ -26,6 +28,7 @@ export class BaseService {
             url: `${DOMAIN}/${url}`,
             data: model,
             headers: {
+                Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 TokenCybersoft: TOKEN
             }
         })
@@ -35,6 +38,7 @@ export class BaseService {
             method: 'DELETE',
             url: `${DOMAIN}/${url}`,
             headers: {
+                Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
                 TokenCybersoft: TOKEN
             }
         })

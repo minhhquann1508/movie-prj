@@ -10,6 +10,12 @@ class ManageUservice extends BaseService {
     login = (user) => {
         return this.post('api/QuanLyNguoiDung/DangNhap', user)
     }
+    getProfileUser = () => {
+        return this.post(`api/QuanLyNguoiDung/ThongTinTaiKhoan`, '')
+    }
+    updateProfile = (newProfile) => {
+        return this.put(`api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, newProfile)
+    }
 }
 
 export const manageUservice = new ManageUservice()
